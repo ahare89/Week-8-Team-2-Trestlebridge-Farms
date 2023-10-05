@@ -16,15 +16,13 @@ namespace Trestlebridge.Models.Facilities {
         }
         public void AddResource (IFeeding animal)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            _chickens.Add(animal);
         }
 
         public void AddResource (List<IFeeding> animals) 
-            {
-            // TODO: implement this...
-            throw new NotImplementedException();
-            }
+        {
+            animals.ForEach(animal => _chickens.Add(animal));
+        }
         
         public override string ToString()
                 {

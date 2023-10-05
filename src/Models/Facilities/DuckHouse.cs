@@ -20,8 +20,7 @@ namespace Trestlebridge.Models.Facilities {
   
   public void AddResource (IFeeding animal)
   {
-    // TODO: implement this...
-    throw new NotImplementedException();
+    _ducks.Add(animal);
   }
 
   public void AddResource (List<IFeeding> animals) 

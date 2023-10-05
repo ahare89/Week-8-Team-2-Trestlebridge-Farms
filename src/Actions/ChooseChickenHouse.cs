@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.ChickenHouses[choice].AddResource(animal);
+            farm.ChickenHouses[choice - 1].AddResource(animal);
 
         }
     }

@@ -23,16 +23,16 @@ public class PurchaseSeed
 
         switch (Int32.Parse(choice))
         {
-            case 1:
-            // ChooseSeedField.CollectInput(farm, new Sunflower());
-            // break; ...needs Plowed/NaturalField, ChoosePlowed/NaturalField & seed models set up;
-            // case 2:
-            //     ChooseGrazingField.CollectInput(farm, new Wildflower());
-            //     break; ...needs NaturalField, ChooseNaturalField & seed models set up;
-            // case 3:
-            //     ChooseGrazingField.CollectInput(farm, new Sesame());
-            //     ChooseGrazingField.CollectInput(farm, new Wildflower());
-            //     break; ...needs PlowedField, ChoosePlowedField & seed models set up;
+            // case 1:
+            //     ChooseSeedField.CollectInput(farm, new Sunflower());
+            //     break; 
+             case 2:
+                 ChooseNaturalField.CollectInput(farm, new Wildflower());
+                 break; 
+             case 3:
+                 ChoosePlowedField.CollectInput(farm, new Sesame());
+               
+                 break; 
             default:
                 break;
         }
