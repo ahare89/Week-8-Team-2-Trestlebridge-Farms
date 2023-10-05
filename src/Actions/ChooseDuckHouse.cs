@@ -10,30 +10,41 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, IFeeding animal)
         {
-            Utils.Clear();
-
-            for (int i = 0; i < farm.DuckHouses.Count; i++)
+            while (true)
             {
-                if (farm.DuckHouses[i].Capacity > farm.DuckHouses[i].AnimalCount)
+                Utils.Clear();
+                Console.WriteLine($"0. Exit to main menu");
+
+                for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Duck House");
+                    Console.WriteLine($"{i + 1}. Duck House  ({farm.DuckHouses[i].AnimalCount} ducks)");
                 }
-            }
-            Console.WriteLine();
+                Console.WriteLine();
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the animal where?");
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
-
-            if (farm.DuckHouses[choice - 1].Capacity > farm.DuckHouses[choice - 1].AnimalCount)
-            {
-                farm.DuckHouses[choice - 1].AddResource(animal);
-            }
-            else
-            {
-                Console.WriteLine("The Duck House is FULL!");
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine());
+                Console.WriteLine($"{choice}");
+                
+                if (choice == 0)
+                {
+                    break;
+                }
+                else if (farm.DuckHouses[choice - 1].Capacity > farm.DuckHouses[choice - 1].AnimalCount)
+                {
+                    farm.DuckHouses[choice - 1].AddResource(animal);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($@"
+**** That facililty is not large enough ****
+****     Please choose another one      ****
+(press any key)");
+                    Console.ReadLine();
+                }
             }
 
         }

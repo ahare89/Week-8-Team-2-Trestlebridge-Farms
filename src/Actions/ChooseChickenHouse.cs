@@ -10,31 +10,44 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, IFeeding animal)
         {
-            Utils.Clear();
-
-            for (int i = 0; i < farm.ChickenHouses.Count; i++)
+            while (true)
             {
-                if (farm.ChickenHouses[i].Capacity > farm.ChickenHouses[i].AnimalCount)
+                Utils.Clear();
+                Console.WriteLine($"0. Exit to main menu");
+                
+                for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. Chicken House  ({farm.ChickenHouses[i].AnimalCount} chickens)");
                 }
-            }
-            Console.WriteLine();
+                Console.WriteLine();
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the animal where?");
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine());
+                Console.WriteLine($"{choice}");
 
-            if (farm.ChickenHouses[choice - 1].Capacity > farm.ChickenHouses[choice - 1].AnimalCount)
-            {
-                farm.ChickenHouses[choice - 1].AddResource(animal);
+                if (choice == 0)
+                {
+                    break;
+                }
+                else if (farm.ChickenHouses[choice - 1].Capacity > farm.ChickenHouses[choice - 1].AnimalCount)
+                {
+                    farm.ChickenHouses[choice - 1].AddResource(animal);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($@"
+**** That facililty is not large enough ****
+****     Please choose another one      ****
+(press any key)");
+                    Console.ReadLine();
+
+                }
             }
-            else
-            {
-                Console.WriteLine("The Coop is FULL!");
-            }
+            
 
         }
     }
