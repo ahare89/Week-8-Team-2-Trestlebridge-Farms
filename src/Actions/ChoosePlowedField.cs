@@ -17,6 +17,7 @@ public class ChoosePlowedField
             for (int i = 0; i < farm.PlowedFields.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. Plowed Field  ({farm.PlowedFields[i].RowCount} flowers)");
+                Console.WriteLine(farm.PlowedFields[i]);
             }
 
             Console.WriteLine();
@@ -35,6 +36,8 @@ public class ChoosePlowedField
             else if (farm.PlowedFields[choice - 1].Capacity > farm.PlowedFields[choice - 1].RowCount)
             {
                 farm.PlowedFields[choice - 1].AddResource(plant);
+                Console.WriteLine("Plant added.");
+                Console.ReadLine();
                 break;
             }
             else

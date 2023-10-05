@@ -31,6 +31,7 @@ public class NaturalField : IFacility<ICompostProducing>
         }
     }
 
+
     public void AddResource(ICompostProducing plant)
     {
         _plants.Add(plant);

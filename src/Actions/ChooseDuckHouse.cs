@@ -18,6 +18,7 @@ namespace Trestlebridge.Actions
                 for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. Duck House  ({farm.DuckHouses[i].AnimalCount} ducks)");
+                    Console.WriteLine(farm.DuckHouses[i]);
                 }
                 Console.WriteLine();
 
@@ -35,6 +36,8 @@ namespace Trestlebridge.Actions
                 else if (farm.DuckHouses[choice - 1].Capacity > farm.DuckHouses[choice - 1].AnimalCount)
                 {
                     farm.DuckHouses[choice - 1].AddResource(animal);
+                    Console.WriteLine("Duck added.");
+                    Console.ReadLine();
                     break;
                 }
                 else

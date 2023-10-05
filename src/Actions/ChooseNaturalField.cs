@@ -17,6 +17,8 @@ public class ChooseNaturalField
             for (int i = 0; i < farm.NaturalFields.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. Natural Field  ({farm.NaturalFields[i].RowCount} flowers)");
+                Console.WriteLine(farm.NaturalFields[i]);
+
             }
             Console.WriteLine();
 
@@ -34,6 +36,8 @@ public class ChooseNaturalField
             else if (farm.NaturalFields[choice - 1].Capacity > farm.NaturalFields[choice - 1].RowCount)
             {
                 farm.NaturalFields[choice - 1].AddResource(plant);
+                Console.WriteLine("Plant added.");
+                Console.ReadLine();
                 break;
             }
             else
