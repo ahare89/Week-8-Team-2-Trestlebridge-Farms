@@ -17,6 +17,12 @@ namespace Trestlebridge.Models.Facilities {
                 return _capacity;
             }
         }
+        //Added property to view how many animals are in a field
+        public int AnimalCount {
+            get {
+                return _animals.Count;
+            }
+        }
 
         public void AddResource (IGrazing animal)
         {
