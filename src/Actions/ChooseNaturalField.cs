@@ -13,7 +13,10 @@ public class ChooseNaturalField
 
         for (int i = 0; i < farm.NaturalFields.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. Natural Field");
+            if (farm.NaturalFields[i].Capacity > farm.NaturalFields[i].RowCount)
+            {
+                Console.WriteLine($"{i + 1}. Natural Field");
+            }
         }
         Console.WriteLine();
 
@@ -23,6 +26,15 @@ public class ChooseNaturalField
         Console.Write("> ");
         int choice = Int32.Parse(Console.ReadLine());
 
-        farm.NaturalFields[choice - 1].AddResource(plant);
+        if (farm.NaturalFields[choice - 1].Capacity > farm.NaturalFields[choice - 1].RowCount)
+
+
+        {
+            farm.NaturalFields[choice - 1].AddResource(plant);
+        }
+        else
+        {
+            Console.WriteLine("The field is FULL!");
+        }
     }
 }

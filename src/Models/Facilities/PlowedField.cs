@@ -19,7 +19,15 @@ public class PlowedField : IFacility<ISeedProducing>
     {
         get
         {
-            return _PlantPerRow * _Rowcapacity;
+            return _Rowcapacity;
+        }
+    }
+
+    public int RowCount
+    {
+        get
+        {
+            return _plants.Count;
         }
     }
 
