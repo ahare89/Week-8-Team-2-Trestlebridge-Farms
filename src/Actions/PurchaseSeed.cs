@@ -11,9 +11,10 @@ public class PurchaseSeed
 {
     public static void CollectInput(Farm farm)
     {
-        Console.WriteLine("1. Sunflower");
-        Console.WriteLine("2. Wildflower");
-        Console.WriteLine("3. Sesame");
+        Console.WriteLine("1. Sunflower (to plowed field)");
+        Console.WriteLine("2. Sunflower (to natural field)");
+        Console.WriteLine("3. Wildflower");
+        Console.WriteLine("4. Sesame");
 
         Console.WriteLine();
         Console.WriteLine("What are you buying today?");
@@ -23,16 +24,18 @@ public class PurchaseSeed
 
         switch (Int32.Parse(choice))
         {
-            // case 1:
-            //     ChooseSeedField.CollectInput(farm, new Sunflower());
-            //     break; 
-             case 2:
-                 ChooseNaturalField.CollectInput(farm, new Wildflower());
-                 break; 
-             case 3:
-                 ChoosePlowedField.CollectInput(farm, new Sesame());
-               
-                 break; 
+            case 1:
+                ChoosePlowedField.CollectInput(farm, new Sunflower());
+                break; 
+            case 2:
+                ChooseNaturalField.CollectInput(farm, new Sunflower());
+                break;
+            case 3:
+                ChooseNaturalField.CollectInput(farm, new Wildflower());
+                break; 
+            case 4:
+                ChoosePlowedField.CollectInput(farm, new Sesame());               
+                break; 
             default:
                 break;
         }
