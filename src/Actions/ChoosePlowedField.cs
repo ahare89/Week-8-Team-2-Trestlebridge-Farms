@@ -13,7 +13,9 @@ public class ChoosePlowedField
 
         for (int i = 0; i < farm.PlowedFields.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. Plowed Field");
+            if (farm.PlowedFields[i].Capacity > farm.PlowedFields[i].RowCount)
+
+                Console.WriteLine($"{i + 1}. Plowed Field");
         }
         Console.WriteLine();
 
@@ -23,6 +25,13 @@ public class ChoosePlowedField
         Console.Write("> ");
         int choice = Int32.Parse(Console.ReadLine());
 
-        farm.PlowedFields[choice - 1].AddResource(plant);
+        if (farm.PlowedFields[choice - 1].Capacity > farm.PlowedFields[choice - 1].RowCount)
+        {
+            farm.PlowedFields[choice - 1].AddResource(plant);
+        }
+        else
+        {
+            Console.WriteLine("The field is FULL!");
+        }
     }
 }
