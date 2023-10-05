@@ -25,8 +25,7 @@ public class PlowedField : IFacility<ISeedProducing>
 
     public void AddResource(ISeedProducing plant)
     {
-        // TODO: implement this...
-        throw new NotImplementedException();
+        _plants.Add(plant);
     }
 
     public void AddResource(List<ISeedProducing> plants)

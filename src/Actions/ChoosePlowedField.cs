@@ -23,6 +23,6 @@ public class ChoosePlowedField
         Console.Write("> ");
         int choice = Int32.Parse(Console.ReadLine());
 
-        farm.PlowedFields[choice].AddResource(plant);
+        farm.PlowedFields[choice - 1].AddResource(plant);
     }
 }
