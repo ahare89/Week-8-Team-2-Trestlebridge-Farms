@@ -14,7 +14,8 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                //follow same methodology on Chicken House and Duck House
+                Console.WriteLine($"{i + 1}. Grazing  ({farm.GrazingFields[i].AnimalCount} animals)");
             }
 
             Console.WriteLine();
